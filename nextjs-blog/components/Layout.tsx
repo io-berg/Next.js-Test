@@ -1,13 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
 import utilStyles from "../styles/utils.module.css";
 import styles from "./layout.module.css";
 
 const name = "Berg";
 export const siteTitle = "Next.js Sample Website";
 
-export default function Layout({ children, home }) {
+interface LayoutProps {
+  children: React.ReactNode;
+  home?: boolean;
+}
+
+const Layout: FC<LayoutProps> = ({ children, home }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -70,4 +76,6 @@ export default function Layout({ children, home }) {
       )}
     </div>
   );
-}
+};
+
+export default Layout;
